@@ -19,7 +19,7 @@ func New(requiredAudience string) *iap {
 	err := i.refreshCerts()
 
 	if err != nil {
-		fmt.Errorf("could not refresh certificates: %s", err)
+		fmt.Printf("could not refresh certificates: %s\n", err)
 	}
 
 	return i
@@ -73,7 +73,7 @@ func (i *iap) validate(assertion string) (email, userID string, err error) {
 			return nil, fmt.Errorf("could not find certificate with id %s", keyID)
 		}
 
-		return jwt.ParseECPublicKeyFromPEM([]byte(cert)), nil
+		return jwt.ParseECPublicKeyFromPEM([]byte(cert))
 	})
 
 	if err != nil {
