@@ -1,4 +1,4 @@
-module github.com/lagren/go-iap
+module github.com/lagren/iap
 
 go 1.13
 
