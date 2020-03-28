@@ -18,7 +18,7 @@ jobs: # basic units of work in a run
           keys:
             - v1-pkg-cache
 
-      - run: go get
+      - run: make deps
 
       - run:
           name: Run unit tests
