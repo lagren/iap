@@ -34,7 +34,7 @@ workflows:
                   trap "go-junit-report <${TEST_RESULTS}/go-test.out > ${TEST_RESULTS}/go-test-report.xml" EXIT
                   make test | tee ${TEST_RESULTS}/go-test.out
 
-      #      - run: make # pull and build dependencies for the project
+            - run: make # pull and build dependencies for the project
 
             - save_cache: # Store cache in the /go/pkg directory
                 key: v1-pkg-cache
