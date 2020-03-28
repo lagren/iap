@@ -1,18 +1,25 @@
-version: 2 # use CircleCI 2.0
+version: 2.1 # use CircleCI 2.0
 workflows:
   version: 2
   workflow:
     jobs:
       - build:
+#          name: build-v<< matrix.version >>
           matrix:
             parameters:
               version: ["1.13", "1.14"]
+
+
+
 jobs:
   build:
-    name: build <<matrix.version>>
+    parameters:
+      version:
+        type: string
+        default: ""
     docker: # run the steps with Docker
       # CircleCI Go images available at: https://hub.docker.com/r/circleci/golang/
-      - image: circleci/golang:<<matrix.version>> #
+      - image: circleci/golang:<< parameters.version >> #
       # CircleCI PostgreSQL images available at: https://hub.docker.com/r/circleci/postgres/
 
     environment: # environment variables for the build itself
