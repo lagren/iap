@@ -129,3 +129,8 @@ func (i *iap) refreshCerts() error {
 
 	return nil
 }
+
+type GoogleIAPToken struct {
+	AccountDomain string `json:"hd,omitempty"`
+	jwt.StandardClaims
+}
